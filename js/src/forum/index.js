@@ -10,11 +10,9 @@ app.initializers.add('darkle/fancybox', () => {
     this.element
       .querySelectorAll('img:not(.emoji):not(.Avatar):not(.PostMeta-ip img):not([data-reaction]):not([data-link-preview]):not(.flamoji img):not(a img):not(img.catchthefish-image)')
       .forEach((node) => {
-        const fancyboxEl = document.createElement('a');
-        fancyboxEl.setAttribute('data-fancybox', 'responsive');
-        fancyboxEl.setAttribute('data-src', node.getAttribute('data-src') || node.getAttribute('src'));
-
-        $(node).wrap(fancyboxEl);
+        node.setAttribute('data-fancybox', 'responsive');
+        node.setAttribute('data-src', node.getAttribute('data-src') || node.getAttribute('src'));
+        node.style.cursor = 'pointer';
       });
   });
 });
